@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jnyandeep's RPS</title>
+  <meta name="description" content="Jnyandeep's RPS - AI-Powered Hand-Tracking Rock Paper Scissors Game" />
+  <meta name="theme-color" content="#0b0f19" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<main id="stage">
+  <video id="video" autoplay playsinline muted></video>
+  <canvas id="canvas"></canvas>
+</main>
+
+<header id="header">
+  <div class="brand panel">
+    <span class="status-dot"></span>
+    <span class="brand-title">Jnyandeep's RPS</span>
+    <span class="badge-ai">AI Neural</span>
+  </div>
+
+  <div id="score" class="panel">
+    <div class="score-item you">
+      <span class="score-label">You</span>
+      <span class="score-value" id="score-you">0</span>
+    </div>
+    <span class="score-divider">/</span>
+    <div class="score-item ai">
+      <span class="score-label">AI</span>
+      <span class="score-value" id="score-ai">0</span>
+    </div>
+    <span class="score-divider">/</span>
+    <div class="score-item draw">
+      <span class="score-label">Draw</span>
+      <span class="score-value" id="score-draw">0</span>
+    </div>
+    <span id="streak-pill"></span>
+  </div>
+</header>
+
+<aside id="brain" class="panel">
+  <div class="brain-header">
+    <span class="brain-title">Predictor</span>
+    <span id="brain-pill">Standby</span>
+  </div>
+  <div id="meter-track">
+    <div id="meter-fill"></div>
+  </div>
+  <div id="meter-label">Gathering move patterns…</div>
+  <canvas id="spark-chart"></canvas>
+  <div id="model-reason">The AI locks its choice in <b>before</b> your gesture is read.</div>
+</aside>
+
+<section id="center">
+  <div id="countdown"></div>
+  <div id="duel-display">
+    <div class="hand-card you">
+      <div class="hand-glyph" id="g-you">✊</div>
+      <div class="hand-label">You</div>
+    </div>
+    <div id="vs-divider">VS</div>
+    <div class="hand-card ai">
+      <div class="hand-glyph" id="g-ai">✊</div>
+      <div class="hand-label">AI</div>
+    </div>
+  </div>
+  <div id="result-container">
+    <div id="verdict"></div>
+    <div id="sub-status"></div>
+  </div>
+</section>
+
+<div id="live-tracker" class="panel">
+  <span class="track-indicator"></span>
+  <span id="live-text">Waiting for hand</span>
+</div>
+
+<div id="history"></div>
+
+<nav id="control-deck" class="panel">
+  <button id="btn-throw-0" class="btn" data-move="0">
+    <span>✊</span> Rock <span class="kbd">R</span>
+  </button>
+  <button id="btn-throw-1" class="btn" data-move="1">
+    <span>✋</span> Paper <span class="kbd">P</span>
+  </button>
+  <button id="btn-throw-2" class="btn" data-move="2">
+    <span>✌️</span> Scissors <span class="kbd">S</span>
+  </button>
+
+  <div class="deck-divider"></div>
+
+  <button id="btn-play" class="btn primary">
+    Play Round <span class="kbd">Space</span>
+  </button>
+  <button id="btn-auto" class="btn">
+    Auto <span class="kbd">A</span>
+  </button>
+  <button id="btn-sound" class="btn">
+    Sound
+  </button>
+  <button id="btn-reset" class="btn">
+    Reset <span class="kbd">⌫</span>
+  </button>
+</nav>
+
+<div id="boot-screen">
+  <div class="loader-spinner"></div>
+  <h1>Jnyandeep's RPS</h1>
+  <p id="boot-text">Loading neural hand tracker…</p>
+</div>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
